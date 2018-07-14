@@ -1,0 +1,5 @@
+- hosts: all
+  tasks:
+    - import_tasks: packages.yml
+    - import_tasks: config.yml
+    - import_tasks: settings.yml

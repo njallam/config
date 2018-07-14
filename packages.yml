@@ -1,0 +1,37 @@
+---
+- name: Remove pacakges
+  dnf:
+    name:
+      - rhythmbox
+    state: absent
+  become: yes
+- name: Upgrade packages
+  dnf:
+    name: "*"
+    state: latest
+  become: true
+- name: Install packages
+  dnf:
+    name:
+      - android-tools
+      - cava
+      - cmake
+      - cmatrix
+      - fish
+      - gcc
+      - gcc-c++
+      - ghex
+      - gitg
+      - gnome-terminal-nautilus
+      - gnome-tweaks
+      - gnome-usage
+      - graphviz
+      - htop
+      - iftop
+      - iotop
+      - lm_sensors
+      - nano
+      - nodejs
+      - rlwrap
+      - stress
+  become: true

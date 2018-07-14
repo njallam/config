@@ -1,0 +1,16 @@
+---
+- name: Enable Night Light
+  dconf:
+    key: "{{item.key}}"
+    value: "{{item.value}}"
+  with_dict:
+    /org/gnome/settings-daemon/plugins/color/night-light-enabled: 'true'
+    /org/gnome/settings-daemon/plugins/color/night-light-schedule-automatic: 'true'
+- name: Add to top bar
+  dconf:
+    key: "{{item.key}}"
+    value: "{{item.value}}"
+  with_dict:
+      /org/gnome/desktop/interface/clock-show-date: 'true'
+      /org/gnome/desktop/interface/clock-show-seconds: 'true'
+      /org/gnome/desktop/interface/show-battery-percentage: 'true'
