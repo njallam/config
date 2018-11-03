@@ -5,6 +5,7 @@
       - rhythmbox
     state: absent
   become: yes
+- import_tasks: repositories.yml
 - name: Upgrade packages
   dnf:
     name: "*"
@@ -14,9 +15,11 @@
   dnf:
     name:
       - android-tools
+      - atom
       - cava
       - cmake
       - cmatrix
+      - code
       - fish
       - gcc
       - gcc-c++
@@ -25,6 +28,7 @@
       - gnome-terminal-nautilus
       - gnome-tweaks
       - gnome-usage
+      - google-chrome-stable
       - graphviz
       - htop
       - iftop
@@ -35,3 +39,4 @@
       - rlwrap
       - stress
   become: true
+- import_tasks: discord.yml

@@ -1,0 +1,21 @@
+---
+- name: Clone RPM-Outpost/discord
+  git:
+    repo: git@github.com:RPM-Outpost/discord.git
+    dest: "{{ansible_env.HOME}}/github/RPM-Outpost/discord"
+- name: Build Discord package
+  expect:
+    chdir: "{{ansible_env.HOME}}/github/RPM-Outpost/discord/"
+    command: ./create-package.sh stable
+    responses:
+      Remove the directory ".+\/work"?: ''
+      Remove the directory ".+\/RPMs"?: ''
+      Use this archive instead of downloading a new one?: ''
+      Install the package now?: ''
+    timeout: 60
+- shell: "realpath {{ansible_env.HOME}}/github/RPM-Outpost/discord/RPMs/x86_64/*.rpm"
+  register: discord_rpm
+- name: Install Discord
+  dnf:
+    name: "{{discord_rpm.stdout}}"
+  become: true

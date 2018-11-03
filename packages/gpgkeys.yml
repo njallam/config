@@ -1,0 +1,3 @@
+atom_gpgkey: https://packagecloud.io/AtomEditor/atom/gpgkey
+microsoft_gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+google_gpgkey: https://dl.google.com/linux/linux_signing_key.pub
