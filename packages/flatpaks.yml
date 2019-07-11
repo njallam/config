@@ -1,0 +1,12 @@
+---
+- name: Add Flathub Repository
+  flatpak_remote:
+    name: flathub
+    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+- name: Install Flatpaks
+  flatpak:
+    name: '{{ item }}'
+  with_items:
+    - com.discordapp.Discord
+    - com.getpostman.Postman
+    - com.spotify.Client

@@ -1,0 +1,27 @@
+{
+  "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 16,
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "editor.mouseWheelZoom": true,
+  "editor.renderWhitespace": "boundary",
+  "explorer.confirmDragAndDrop": false,
+  "files.associations": {
+    "*.xtx": "latex"
+  },
+  "git.autofetch": true,
+  "latex-workshop.view.pdf.viewer": "tab",
+  "prettier.singleQuote": true,
+  "python.jediEnabled": false,
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "window.menuBarVisibility": "default",
+  "window.zoomLevel": 1,
+  "workbench.activityBar.visible": true,
+  "workbench.colorTheme": "Atom One Light",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.sideBar.location": "left",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.statusBar.visible": true
+}

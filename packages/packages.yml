@@ -1,0 +1,61 @@
+---
+- name: Remove Pacakges
+  dnf:
+    name:
+      - rhythmbox
+    state: absent
+- import_tasks: repositories.yml
+- name: Upgrade Packages
+  dnf:
+    name: '*'
+    state: latest
+- name: Install Packages (General)
+  dnf:
+    name:
+      - cava
+      - cmatrix
+      - cowsay
+      - fish
+      - fortune-mod
+      - fuse-exfat
+      - fzf
+      - htop
+      - iftop
+      - iotop
+      - lm_sensors
+      - lshw
+      - nano
+      - ranger
+      - rlwrap
+      - the_silver_searcher
+      - vim-enhanced
+  become: yes
+- name: Install Packages (Development)
+  dnf:
+    name:
+      - android-tools
+      # - atom
+      - cmake
+      - fira-code-fonts
+      - gcc
+      - gcc-c++
+      - haskell-platform
+      - graphviz
+      - nodejs
+      - stress
+      - texlive
+- name: Install Packages (Graphical)
+  dnf:
+    name:
+      - chrome-gnome-shell
+      - ghex
+      - gitg
+      - gnome-music
+      - gnome-nettool
+      - gnome-terminal-nautilus
+      - gnome-tweaks
+      - gnome-usage
+      - google-chrome-stable
+      - inkscape
+      - wireshark
+- import_tasks: flatpaks.yml

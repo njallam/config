@@ -1,16 +1,42 @@
 ---
 - name: Enable Night Light
   dconf:
-    key: "{{item.key}}"
-    value: "{{item.value}}"
+    key: '/org/gnome/settings-daemon/plugins/color/{{ item.key }}'
+    value: '{{ item.value }}'
   with_dict:
-    /org/gnome/settings-daemon/plugins/color/night-light-enabled: 'true'
-    /org/gnome/settings-daemon/plugins/color/night-light-schedule-automatic: 'true'
-- name: Add to top bar
+    night-light-enabled: 'true'
+    night-light-schedule-automatic: 'true'
+- name: Add to Top Bar
   dconf:
-    key: "{{item.key}}"
-    value: "{{item.value}}"
+    key: '/org/gnome/desktop/interface/{{ item.key }}'
+    value: '{{ item.value }}'
   with_dict:
-      /org/gnome/desktop/interface/clock-show-date: 'true'
-      /org/gnome/desktop/interface/clock-show-seconds: 'true'
-      /org/gnome/desktop/interface/show-battery-percentage: 'true'
+    clock-show-date: 'true'
+    clock-show-seconds: 'true'
+    clock-show-weekday: 'true'
+    show-battery-percentage: 'true'
+- name: Set Tap-to-Click
+  dconf:
+    key: org/gnome/desktop/peripherals/touchpad/tap-to-click
+    value: 'true'
+- name: Disable Error Reporting
+  dconf:
+    key: org/gnome/desktop/privacy/report-technical-problems
+    value: 'false'
+- name: Set Keybindings
+    key: 'org/gnome/desktop/wm/keybindings/{{ item.key }}'
+    value: '{{ item.value }}'
+  with_dict:
+    switch-applications: "['<Super>Tab']"
+    switch-applications-backward: "['<Shift><Super>Tab']"
+    switch-windows: "['<Alt>Tab']"
+    switch-windows-backward: "['<Shift><Alt>Tab']"
+- name: Set Window Preferences
+    key: 'org/gnome/desktop/wm/preferences/{{ item.key }}'
+    value: '{{ item.value }}'
+  with_dict:
+    action-right-click-titlebar: 'menu'
+    audible-bell: 'false'
+    button-layout: 'appmenu:minimize,maximize,close'
+    visual-bell: 'true'
+    visual-bell-type: 'frame-flash'

@@ -1,0 +1,5 @@
+https://extensions.gnome.org/extension/307/dash-to-dock/
+https://extensions.gnome.org/extension/351/icon-hider/
+https://extensions.gnome.org/extension/277/impatience/
+https://extensions.gnome.org/extension/800/remove-dropdown-arrows/
+https://extensions.gnome.org/extension/1497/topicons-redux/
